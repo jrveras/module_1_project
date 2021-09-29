@@ -1,0 +1,48 @@
+## Docker commands used to build the application 
+docker build -t jairtonjr/techtrends .
+docker tag techtrends jairtonjr/techtrends:v1.0.0
+
+## Docker commands used to run the application
+docker run -it -d --name techtrends -p 7111:3111 jairtonjr/techtrends
+
+## Docker commands used to get the application logs
+docker logs techtrends  
+
+## Logs from the container running the TechTrends application
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+INFO:werkzeug: * Running on http://0.0.0.0:3111/ (Press CTRL+C to quit)
+INFO:werkzeug:172.17.0.1 - - [29/Sep/2021 03:05:58] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [29/Sep/2021 03:05:58] "GET /static/css/main.css HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [29/Sep/2021 03:05:58] "GET /favicon.ico HTTP/1.1" 404 -
+INFO:werkzeug:172.17.0.1 - - [29/Sep/2021 03:07:01] "GET / HTTP/1.1" 200 -
+INFO:app:Article 2020 CNCF Annual Report retrieved!
+INFO:werkzeug:172.17.0.1 - - [29/Sep/2021 03:09:13] "GET /1 HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [29/Sep/2021 03:09:14] "GET / HTTP/1.1" 200 -
+INFO:app:Article Kubernetes v1.20 Release Notes retrieved!
+INFO:werkzeug:172.17.0.1 - - [29/Sep/2021 03:09:15] "GET /3 HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [29/Sep/2021 03:09:17] "GET / HTTP/1.1" 200 -
+INFO:app:Article CNCF Cloud Native Definition v1.0 retrieved!
+INFO:werkzeug:172.17.0.1 - - [29/Sep/2021 03:09:20] "GET /5 HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [29/Sep/2021 03:09:22] "GET / HTTP/1.1" 200 -
+INFO:app:Article Kubernetes Certification retrieved!
+INFO:werkzeug:172.17.0.1 - - [29/Sep/2021 03:09:24] "GET /6 HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [29/Sep/2021 03:09:25] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [29/Sep/2021 03:09:29] "GET /create HTTP/1.1" 200 -
+INFO:app:The 'About Us' page is retrieved
+INFO:werkzeug:172.17.0.1 - - [29/Sep/2021 03:09:37] "GET /about HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [29/Sep/2021 03:09:39] "GET / HTTP/1.1" 200 -
+INFO:app:Article Kubernetes Certification retrieved!
+INFO:werkzeug:172.17.0.1 - - [29/Sep/2021 03:09:43] "GET /6 HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [29/Sep/2021 03:11:02] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [29/Sep/2021 03:11:03] "GET /create HTTP/1.1" 200 -
+INFO:app:The article How to Handle Data Duplication in Data-Heavy Kubernetes Environments is created
+INFO:werkzeug:172.17.0.1 - - [29/Sep/2021 03:11:55] "POST /create HTTP/1.1" 302 -
+INFO:werkzeug:172.17.0.1 - - [29/Sep/2021 03:11:55] "GET / HTTP/1.1" 200 -
+INFO:app:Article How to Handle Data Duplication in Data-Heavy Kubernetes Environments retrieved!
+INFO:werkzeug:172.17.0.1 - - [29/Sep/2021 03:11:59] "GET /7 HTTP/1.1" 200 -
+INFO:app:The 'About Us' page is retrieved
+INFO:werkzeug:172.17.0.1 - - [29/Sep/2021 03:12:03] "GET /about HTTP/1.1" 200 -
