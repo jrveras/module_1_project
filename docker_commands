@@ -1,5 +1,6 @@
 ## Docker commands used to build the application 
 docker build -t jairtonjr/techtrends .
+docker tag techtrends jairtonjr/techtrends:v1.0.0
 
 ## Docker commands used to run the application
 docker run -it -d --name techtrends -p 7111:3111 jairtonjr/techtrends
