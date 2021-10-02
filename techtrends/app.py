@@ -86,7 +86,7 @@ def create():
     return render_template('create.html')
 
 @app.route('/healthz')
-def health():
+def healthz():
     try:
         connection = get_db_connection()
         tableExists = connection.execute("SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='posts'").fetchone()
