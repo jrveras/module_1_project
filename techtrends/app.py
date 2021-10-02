@@ -6,6 +6,14 @@ from werkzeug.exceptions import abort
 
 dbConnCount = 0
 
+class Error(Exception):
+    """Base class for other exceptions"""
+    pass
+
+class TableNotExists(Error):
+    """Raised when the table does not exists"""
+    pass
+
 # Function to get a database connection.
 # This function connects to database with the name `database.db`
 def get_db_connection():
@@ -78,17 +86,46 @@ def create():
 
 @app.route('/health')
 def health():
-    response = app.response_class(
-        response=json.dumps({ "result": "ok - healthy" }),
-        status=200,
-        mimetype='application/json'
-    )
+    try:
+        connection = get_db_connection()
+        tableExists = connection.execute("SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='posts'").fetchone()
+        connection.close()
+
+        if tableExists[0] == 0:
+            raise TableNotExists
+        
+        response = app.response_class(
+            response=json.dumps({ "result": "OK - healthy" }),
+            status=200,
+            mimetype='application/json'
+        )
+    except sqlite3.Error as e:
+        response = app.response_class(
+            response=json.dumps({ "result": "ERROR - unhealthy" }),
+            status=500,
+            mimetype='application/json'
+        )
+    except TableNotExists as e:
+        connection.close()
+        response = app.response_class(
+            response=json.dumps({ "result": "ERROR - unhealthy" }),
+            status=500,
+            mimetype='application/json'
+        )
+    except Exception as e:
+        connection.close()
+        response = app.response_class(
+            response=json.dumps({ "result": "ERROR - unhealthy", "error": format(e) }),
+            status=500,
+            mimetype='application/json'
+        )
     return response
 
 @app.route('/metrics')
 def metrics():
     connection = get_db_connection()
     postsCount = connection.execute('SELECT COUNT(*) FROM posts').fetchone()
+    connection.close()
 
     response = app.response_class(
         response=json.dumps(
