@@ -5,7 +5,7 @@ metadata:
     app: techtrends
     tag: latest
   name: techtrends
-  namespace: sandbox
+  namespace: {{ .Values.namespace.name }}
 spec:
   selector:
     app: techtrends
