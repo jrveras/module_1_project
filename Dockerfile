@@ -1,4 +1,4 @@
-FROM python:3.8
+FROM python:2.7
 LABEL maintainer="Jairton Junior"
 
 COPY /techtrends/. /app

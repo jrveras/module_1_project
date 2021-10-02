@@ -1,5 +1,6 @@
 import sqlite3
 import logging
+import sys
 
 from flask import Flask, jsonify, json, render_template, request, url_for, redirect, flash
 from werkzeug.exceptions import abort
@@ -49,17 +50,17 @@ def index():
 def post(post_id):
     post = get_post(post_id)
     if post is None:
-        app.logger.info("Article with ID " + str(post_id) + " not found!")
+        app.logger.debug("Article with ID " + str(post_id) + " not found!")
         return render_template('404.html'), 404
     else:
-        app.logger.info("Article " + post['title'] + " retrieved!")
+        app.logger.debug("Article " + post['title'] + " retrieved!")
         # print (post['title'])
         return render_template('post.html', post=post)
 
 # Define the About Us page
 @app.route('/about')
 def about():
-    app.logger.info("The 'About Us' page is retrieved")
+    app.logger.debug("The 'About Us' page is retrieved")
     return render_template('about.html')
 
 # Define the post creation functionality 
@@ -78,13 +79,13 @@ def create():
             connection.commit()
             connection.close()
 
-            app.logger.info("The article " + title + " is created")
+            app.logger.debug("The article " + title + " is created")
 
             return redirect(url_for('index'))
 
     return render_template('create.html')
 
-@app.route('/health')
+@app.route('/healthz')
 def health():
     try:
         connection = get_db_connection()
@@ -138,10 +139,13 @@ def metrics():
         status=200,
         mimetype='application/json'
     )
-    app.logger.info("Article retrieved!")
+    app.logger.debug("Article retrieved!")
     return response
 
 # start the application on port 3111
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.DEBUG)
+    logging.basicConfig(stream=sys.stdout,
+                        level=logging.DEBUG,
+                        format='%(asctime)s:%(levelname)s:%(name)s:[%(filename)s.%(funcName)s:%(lineno)d]:%(message)s')
+
     app.run(host='0.0.0.0', port='3111')
