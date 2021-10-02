@@ -13,8 +13,8 @@ spec:
       valueFiles:
       - values-prod.yaml
     # path to the folder with the YAML manifests
-    path: nginx-deployment
-    repoURL: https://github.com/jrveras/helm-chart
+    path: helm
+    repoURL: https://github.com/jrveras/module_1_project
     targetRevision: HEAD
   # Sync policy
   syncPolicy: {}

@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: techtrends-staging
+  namespace: argocd
+spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    helm:
+      valueFiles:
+      - values-staging.yaml
+    # path to the folder with the YAML manifests
+    path: helm
+    repoURL: https://github.com/jrveras/module_1_project
+    targetRevision: HEAD
+  # Sync policy
+  syncPolicy: {}
