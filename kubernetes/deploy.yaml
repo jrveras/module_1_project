@@ -32,10 +32,10 @@ spec:
         - containerPort: 3111
         livenessProbe:
           httpGet:
-            path: /health
+            path: /healthz
             port: 3111
         readinessProbe:
           httpGet:
-            path: /health
+            path: /healthz
             port: 3111
           

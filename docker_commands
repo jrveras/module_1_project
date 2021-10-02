@@ -1,6 +1,6 @@
 ## Docker commands used to build the application 
 docker build -t jairtonjr/techtrends .
-docker tag techtrends jairtonjr/techtrends:v1.0.0
+docker tag jairtonjr/techtrends techtrends
 
 ## Docker commands used to run the application
 docker run -it -d --name techtrends -p 7111:3111 jairtonjr/techtrends
@@ -14,35 +14,26 @@ docker logs techtrends
    WARNING: This is a development server. Do not use it in a production deployment.
    Use a production WSGI server instead.
  * Debug mode: off
-INFO:werkzeug: * Running on http://0.0.0.0:3111/ (Press CTRL+C to quit)
-INFO:werkzeug:172.17.0.1 - - [29/Sep/2021 03:05:58] "GET / HTTP/1.1" 200 -
-INFO:werkzeug:172.17.0.1 - - [29/Sep/2021 03:05:58] "GET /static/css/main.css HTTP/1.1" 200 -
-INFO:werkzeug:172.17.0.1 - - [29/Sep/2021 03:05:58] "GET /favicon.ico HTTP/1.1" 404 -
-INFO:werkzeug:172.17.0.1 - - [29/Sep/2021 03:07:01] "GET / HTTP/1.1" 200 -
-INFO:app:Article 2020 CNCF Annual Report retrieved!
-INFO:werkzeug:172.17.0.1 - - [29/Sep/2021 03:09:13] "GET /1 HTTP/1.1" 200 -
-INFO:werkzeug:172.17.0.1 - - [29/Sep/2021 03:09:14] "GET / HTTP/1.1" 200 -
-INFO:app:Article Kubernetes v1.20 Release Notes retrieved!
-INFO:werkzeug:172.17.0.1 - - [29/Sep/2021 03:09:15] "GET /3 HTTP/1.1" 200 -
-INFO:werkzeug:172.17.0.1 - - [29/Sep/2021 03:09:17] "GET / HTTP/1.1" 200 -
-INFO:app:Article CNCF Cloud Native Definition v1.0 retrieved!
-INFO:werkzeug:172.17.0.1 - - [29/Sep/2021 03:09:20] "GET /5 HTTP/1.1" 200 -
-INFO:werkzeug:172.17.0.1 - - [29/Sep/2021 03:09:22] "GET / HTTP/1.1" 200 -
-INFO:app:Article Kubernetes Certification retrieved!
-INFO:werkzeug:172.17.0.1 - - [29/Sep/2021 03:09:24] "GET /6 HTTP/1.1" 200 -
-INFO:werkzeug:172.17.0.1 - - [29/Sep/2021 03:09:25] "GET / HTTP/1.1" 200 -
-INFO:werkzeug:172.17.0.1 - - [29/Sep/2021 03:09:29] "GET /create HTTP/1.1" 200 -
-INFO:app:The 'About Us' page is retrieved
-INFO:werkzeug:172.17.0.1 - - [29/Sep/2021 03:09:37] "GET /about HTTP/1.1" 200 -
-INFO:werkzeug:172.17.0.1 - - [29/Sep/2021 03:09:39] "GET / HTTP/1.1" 200 -
-INFO:app:Article Kubernetes Certification retrieved!
-INFO:werkzeug:172.17.0.1 - - [29/Sep/2021 03:09:43] "GET /6 HTTP/1.1" 200 -
-INFO:werkzeug:172.17.0.1 - - [29/Sep/2021 03:11:02] "GET / HTTP/1.1" 200 -
-INFO:werkzeug:172.17.0.1 - - [29/Sep/2021 03:11:03] "GET /create HTTP/1.1" 200 -
-INFO:app:The article How to Handle Data Duplication in Data-Heavy Kubernetes Environments is created
-INFO:werkzeug:172.17.0.1 - - [29/Sep/2021 03:11:55] "POST /create HTTP/1.1" 302 -
-INFO:werkzeug:172.17.0.1 - - [29/Sep/2021 03:11:55] "GET / HTTP/1.1" 200 -
-INFO:app:Article How to Handle Data Duplication in Data-Heavy Kubernetes Environments retrieved!
-INFO:werkzeug:172.17.0.1 - - [29/Sep/2021 03:11:59] "GET /7 HTTP/1.1" 200 -
-INFO:app:The 'About Us' page is retrieved
-INFO:werkzeug:172.17.0.1 - - [29/Sep/2021 03:12:03] "GET /about HTTP/1.1" 200 -
+2021-10-02 23:22:01,652:INFO:werkzeug:[_internal.py._log:122]: * Running on http://0.0.0.0:3111/ (Press CTRL+C to quit)
+2021-10-02 23:22:16,255:INFO:werkzeug:[_internal.py._log:122]:172.17.0.1 - - [02/Oct/2021 23:22:16] "GET / HTTP/1.1" 200 -
+2021-10-02 23:22:30,352:DEBUG:app:[app.py.post:56]:Article KubeCon + CloudNativeCon 2021 retrieved!
+2021-10-02 23:22:30,364:INFO:werkzeug:[_internal.py._log:122]:172.17.0.1 - - [02/Oct/2021 23:22:30] "GET /2 HTTP/1.1" 200 -
+2021-10-02 23:22:45,996:INFO:werkzeug:[_internal.py._log:122]:172.17.0.1 - - [02/Oct/2021 23:22:45] "GET / HTTP/1.1" 200 -
+2021-10-02 23:22:48,709:DEBUG:app:[app.py.post:56]:Article CNCF Cloud Native Interactive Landscape retrieved!
+2021-10-02 23:22:48,714:INFO:werkzeug:[_internal.py._log:122]:172.17.0.1 - - [02/Oct/2021 23:22:48] "GET /4 HTTP/1.1" 200 -
+2021-10-02 23:22:54,887:INFO:werkzeug:[_internal.py._log:122]:172.17.0.1 - - [02/Oct/2021 23:22:54] "GET / HTTP/1.1" 200 -
+2021-10-02 23:22:56,794:DEBUG:app:[app.py.post:56]:Article CNCF Cloud Native Definition v1.0 retrieved!
+2021-10-02 23:22:56,798:INFO:werkzeug:[_internal.py._log:122]:172.17.0.1 - - [02/Oct/2021 23:22:56] "GET /5 HTTP/1.1" 200 -
+2021-10-02 23:23:08,074:INFO:werkzeug:[_internal.py._log:122]:172.17.0.1 - - [02/Oct/2021 23:23:08] "GET / HTTP/1.1" 200 -
+2021-10-02 23:23:09,379:DEBUG:app:[app.py.about:63]:The 'About Us' page is retrieved
+2021-10-02 23:23:09,385:INFO:werkzeug:[_internal.py._log:122]:172.17.0.1 - - [02/Oct/2021 23:23:09] "GET /about HTTP/1.1" 200 -
+2021-10-02 23:23:55,560:INFO:werkzeug:[_internal.py._log:122]:172.17.0.1 - - [02/Oct/2021 23:23:55] "GET /create HTTP/1.1" 200 -
+2021-10-02 23:24:06,039:DEBUG:app:[app.py.create:82]:The article The article How to Handle Data Duplication in Data-Heavy Kubernetes Environments is created
+2021-10-02 23:24:06,041:INFO:werkzeug:[_internal.py._log:122]:172.17.0.1 - - [02/Oct/2021 23:24:06] "POST /create HTTP/1.1" 302 -
+2021-10-02 23:24:06,052:INFO:werkzeug:[_internal.py._log:122]:172.17.0.1 - - [02/Oct/2021 23:24:06] "GET / HTTP/1.1" 200 -
+2021-10-02 23:24:09,762:DEBUG:app:[app.py.post:56]:Article The article How to Handle Data Duplication in Data-Heavy Kubernetes Environments retrieved!
+2021-10-02 23:24:09,763:INFO:werkzeug:[_internal.py._log:122]:172.17.0.1 - - [02/Oct/2021 23:24:09] "GET /7 HTTP/1.1" 200 -
+2021-10-02 23:24:11,504:INFO:werkzeug:[_internal.py._log:122]:172.17.0.1 - - [02/Oct/2021 23:24:11] "GET / HTTP/1.1" 200 -
+2021-10-02 23:24:19,700:DEBUG:app:[app.py.metrics:142]:Article retrieved!
+2021-10-02 23:24:19,702:INFO:werkzeug:[_internal.py._log:122]:172.17.0.1 - - [02/Oct/2021 23:24:19] "GET /metrics HTTP/1.1" 200 -
+2021-10-02 23:24:29,394:INFO:werkzeug:[_internal.py._log:122]:172.17.0.1 - - [02/Oct/2021 23:24:29] "GET /healthz HTTP/1.1" 200 -
