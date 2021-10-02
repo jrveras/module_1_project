@@ -11,7 +11,7 @@ spec:
     app: techtrends
     tag: latest
   ports:
-  - port: 4111
-    targetPort: 3111
-    protocol: TCP
-  type: ClusterIP
+  - port: {{ .Values.service.port }}
+    targetPort: {{ .Values.service.targetPort }}
+    protocol: {{ .Values.service.protocol }}
+  type: {{ .Values.service.type }}
