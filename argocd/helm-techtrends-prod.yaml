@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: techtrends-prod
+  namespace: argocd
+spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    helm:
+      valueFiles:
+      - values-prod.yaml
+    # path to the folder with the YAML manifests
+    path: nginx-deployment
+    repoURL: https://github.com/jrveras/helm-chart
+    targetRevision: HEAD
+  # Sync policy
+  syncPolicy: {}
