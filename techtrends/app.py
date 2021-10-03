@@ -96,7 +96,7 @@ def healthz():
             raise TableNotExists
         
         response = app.response_class(
-            response=json.dumps({ "result": "OK - healthy" }),
+            response=json.dumps({ "result": "OK - healthy - NEW" }),
             status=200,
             mimetype='application/json'
         )
