@@ -3,8 +3,13 @@ namespace:
 
 service:
   port: 5111
+  nodePort: 30009
+  typeNodePort: NodePort
 
 replicaCount: 3
+
+image:
+  pullPolicy: Always
 
 recources:
   requests:

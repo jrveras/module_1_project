@@ -4,12 +4,9 @@ metadata:
   labels:
     app: techtrends
     tag: latest
-  name: techtrends
+  name: techtrends-nodeport
   namespace: {{ .Values.namespace.name }}
 spec:
-  selector:
-    app: techtrends
-    tag: latest
   ports:
   - name: http
     port: {{ .Values.service.port }}
@@ -19,4 +16,10 @@ spec:
     targetPort: {{ .Values.service.port }}
     {{ end }}
     protocol: {{ .Values.service.protocol }}
-  type: {{ .Values.service.type }}
+    nodePort: {{ .Values.service.nodePort }}
+  selector:
+    app: techtrends
+  sessionAffinity: None
+  type: {{ .Values.service.typeNodePort }}
+status:
+  loadBalancer: {}

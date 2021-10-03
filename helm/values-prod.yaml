@@ -3,6 +3,8 @@ namespace:
 
 service:
   port: 7111
+  nodePort: 30010
+  typeNodePort: NodePort
 
 replicaCount: 5
 
